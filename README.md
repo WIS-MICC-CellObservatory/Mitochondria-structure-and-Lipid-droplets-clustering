@@ -1,5 +1,5 @@
 # Mitochondria-structure-and-Lipid-droplets-clustering
-We use FIji, Stardist Cellpose and Ilastik to identify the structure of the mitochondria and lipid droplets clustering in cells under starvation
+We use Fiji, Stardist Cellpose and Ilastik to identify the structure of the mitochondria and lipid droplets clustering in cells under starvation
 ## Overview
 Given an image with three channels: Lipid Droplets (LDs), Litosomes, and Mitocondria stainings, we do the following:
 1. Use Cellpose to idenitify cells

@@ -10,7 +10,7 @@ Given an image with at least three channels: Lipid Droplets (LDs), Mitochondria 
 All analesys is done on a Max intensity projection of the Z stack.
 ## Identify cells
 To identify The cells in the image:
-1. First, we used a train Cellpose model (available in the [Cellpose folder](../Cellpose)) for the initial segmentation (using Cellpose default parameters and setting Cell diameter to 320)
+1. First, we used a train Cellpose model (available in the [Cellpose folder](../../Cellpose)) for the initial segmentation (using Cellpose default parameters and setting Cell diameter to 320)
 2. We then filtered out small identified cells (area smaller than 100 pixel^2)
 3. Finally, we dilated the segmentation by 5 pixels (as the Cellpose model followed the outline of the mitochondria and not the actual cell membrane); We made sure that the cells dilation does not cause an overlap.
 ![Cell segmentation](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/b14a8658-0810-4093-b68f-0dad955bd585)

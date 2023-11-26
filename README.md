@@ -9,7 +9,7 @@ Given an image with at least three channels: Lipid Droplets (LDs), Mitochondria 
 5. Use Ilastik to identify the mitochondria
 6. Use Excel to categorize cells according to the LDs clustering and the size of the mitochondria.
 
-All analysis is done on a Max intensity projection of the Z stack except the mitochondria segmentation. There we used the middle slice (4th slice out of 7)
+All analysis is done on a Max intensity projection of the Z stack except the mitochondria segmentation. There we used the middle slice (4th slice out of 7).
 The Fiji macro orchestrating all these steps is available at the [Fiji folder](../../tree/main/Fiji).
 ## Identify cells
 To identify The cells in the image:

@@ -31,5 +31,5 @@ For each cell in the image, we export to a CSV file the following information:
 3. Number of clusters
 4. Number of clustered LDs
 5. The total area of the mitochondria
-6-9. The area size of the fragmented (fragments less than 1.5 micron^2), intermediate (fragments between 1.5 and 4 micron^2), elongated (fragments between 4 and 14 micron^2), and hyper elongated (fragments bigger than 14 micron ^2) mitochondria.
+6. The area size of the fragmented (fragments less than 1.5 micron^2), intermediate (fragments between 1.5 and 4 micron^2), elongated (fragments between 4 and 14 micron^2), and hyper elongated (fragments bigger than 14 micron ^2) mitochondria.
 

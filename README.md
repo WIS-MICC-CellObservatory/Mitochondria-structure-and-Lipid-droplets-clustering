@@ -9,7 +9,7 @@ Given an image with at least three channels: Lipid Droplets (LDs), Mitochondria 
 5. Use Ilastik to identify the mitochondria
 6. Use Excel to categorize cells according to the LDs clustering and the size of the mitochondria
 All analysis is done on a Max intensity projection of the Z stack except the mitochondria segmentation. There we used the middle slice (4th slice out of 7)
-
+![Mito](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/f2441976-a410-4473-8be0-910907f3aaff)
 The Fiji macro orchestrating all these steps is available at the [Fiji folder](../../tree/main/Fiji).
 ## Identify cells
 To identify The cells in the image:
@@ -24,6 +24,7 @@ For LD Clustering we used Fiji’s BioVoxxel plugin that implements the [SSIDC c
 ![LD clustering](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/660f1375-b74d-4eea-ad77-3001f54c1b22), setting its Cluster distance to 20 and its density to 3.
 ## Identify mitochondria
 To segment mitochondria, we trained an Ilastik model using representative images of all different conditions from both WT and KO group (available in the [Ilastik folder](../../tree/main/Ilastik)).
+
 ## Cell categorization
 For each cell in the image, we export to a CSV file the following information:
 1. Number of LDs

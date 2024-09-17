@@ -1,21 +1,22 @@
 # Mitochondria-structure-and-Lipid-droplets-clustering
-We use Fiji, StarDist Cellpose and Ilastik to identify the structure of the mitochondria and lipid droplets clustering in cells under starvation. 
+We use Fiji, StarDist Cellpose and Ilastik to identify the morphology of mitochondria and number, size and pattern of lipid droplets in complete media and HBSS conditions. 
 ## Overview
-Given an image with at least three channels: Lipid Droplets (LDs), Mitochondria staining and Dapi, we do the following:
+Given an image with at least three channels: Lipid Droplets (LDs), Mitochondria staining and nucleus, we do the following:
 1. Use Cellpose to identify cells
-2. Use StarDist/Cellpose to identify the LDs
+2. Use StarDist to identify the LDs
 3. Use Fiji to count and measure the LDs in each cell
 4. Use Fiji’s SSIDC cluster indicator plugin to identify LD clusters
-5. Use Ilastik to identify the mitochondria
-6. Use Excel to categorize cells according to the LDs clustering and the size of the mitochondria.
+5. Use Ilastik for mitochondrial segmentation
+6. Use Fiji to evaluate the Aspect Ratio (AR) of mitochondrial length
+7. Use Excel to categorize cells according LD pattern and mitochondrial AR.
 
-All analysis is done on a Max intensity projection of the Z stack except the mitochondria segmentation. There we used the middle slice (4th slice out of 7).
+All analysis is done on a Max intensity projection of the Z stack except the mitochondria segmentation. There we used the middle slice where the mitochondria network is most apperant.
 The Fiji macro orchestrating all these steps is available at the [Fiji folder](../../tree/main/Fiji).
 ## Identify cells
 To identify The cells in the image:
-1. First, we trained a Cellpose model using both the Mitochondria and Dapi channels. The training features included cellular and nuclear areas, shape, intensity, and texture features of representative images of all different conditions, from both WT and KO group. We used Cellpose default parameters and set Cell diameter to 320. (available in the [Cellpose folder](../../tree/main/Cellpose)).
+1. First, we trained a Cellpose model using both the Mitochondria and nucleus channels. The training features included cellular and nuclear areas, shape, intensity, and texture features of representative images of all different conditions, from both WT and KO group. We used Cellpose default parameters and set Cell diameter to 320. (available in the [Cellpose folder](../../tree/main/Cellpose)).
 2. We then filtered out small, identified cells (area smaller than 100 micron^2)
-3. Finally, we dilated the segmentation by 5 pixels (as the Cellpose model followed the outline of the mitochondria and not the actual cell membrane); We made sure that the cells dilation does not cause an overlap.
+3. Finally, we dilated the segmentation by 20 pixels (as the Cellpose model followed the outline of the mitochondria and not the actual cell membrane); We made sure that the cells dilation does not cause an overlap.
 ![Cell segmentation](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/b14a8658-0810-4093-b68f-0dad955bd585)
 ## Identify and cluster LDs
 To identify the lipid droplets (LDs), we used StarDist for the MTCH2 KO group. For the WT group, we used StarDist or Cellpose alternatively as at some time points (early hours of post-media change), the LDs have low intensity and StarDist fails to identify them. Cellpose segmentation is better at identifying the LDs at these time points, but still have high false positives. To avoid these false positives, we filter LDs based on their mean intensity (keeping only the top 10-20%). For Cellpose we used its default parameters and the out-of-the-box 'cyto2' model, setting cell diameter to 7.5. We then filtered out too big identified LDs (> 3 micron^2). For StarDist we used the default parameters as set by the Fiji's plugin. 

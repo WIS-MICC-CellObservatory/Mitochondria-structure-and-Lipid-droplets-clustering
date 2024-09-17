@@ -19,7 +19,7 @@ To identify The cells in the image:
 3. Finally, we dilated the segmentation by 20 pixels (as the Cellpose model followed the outline of the mitochondria and not the actual cell membrane); We made sure that the cells dilation does not cause an overlap.
 ![Cell segmentation](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/b14a8658-0810-4093-b68f-0dad955bd585)
 ## Identify and cluster LDs
-To identify the lipid droplets (LDs), we used StarDist. We then filter LDs based on their mean intensity (> 700). Finally, we filtered out too big segmnetations (> 2 micron^2). For StarDist we used the default parameters as set by the Fiji's plugin. 
+To identify the lipid droplets (LDs), we used StarDist. We then filter LDs based on their mean intensity (> 700). Finally, we filtered out too big segmnetations (> 2 micron<sup>2</sup>). For StarDist we used the default parameters as set by the Fiji's plugin. 
 
 For LD Clustering we used Fiji’s BioVoxxel plugin that implements the [SSIDC cluster indicator algorithm](https://imagej.net/plugins/biovoxxel-toolbox#:~:text=changed%20in%20future.-,SSIDC%20Cluster%20Indicator,invariant%20density%20based%20clustering%20DBSCAN).
 ![LD clustering](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/660f1375-b74d-4eea-ad77-3001f54c1b22), setting its Cluster distance to 20 and its density to 3.

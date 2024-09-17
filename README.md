@@ -27,7 +27,7 @@ For LD Clustering we used Fiji’s BioVoxxel plugin that implements the [SSIDC c
 To segment mitochondria, we trained an Ilastik model using representative images of all different conditions from both WT and MKO group (available in the [Ilastik folder](../../tree/main/Ilastik)).
 ![Mito](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/f2441976-a410-4473-8be0-910907f3aaff)
 ## Measuring mitocondrial Asspect Ratio (AR)
-
+We define the Aspect ratio (AR) of the mitochondria of each cell to be the ratio between the mitochondria mean length and the mitochondria mean width. The mean width was taken to be the mean local-thickness of the mitochondria skeleton (using Fiji’s “Local Thickness” and “Skeletonize” plugins respectively), the mean length was taken to be the mitochondria mean area divided by the mean width (mean area was calculated to be the mitochondria total area divided by the number of mitochondria fragments – small fragments were ignored). Finaly, we multiplied the result by π/4 so that circular mitochondria would get AR of 1.
 ## Cell categorization
 For each cell in the image, we export to a CSV file the following information:
 1. Number of LDs

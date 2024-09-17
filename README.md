@@ -24,8 +24,10 @@ To identify the lipid droplets (LDs), we used StarDist. We then filter LDs based
 For LD Clustering we used Fiji’s BioVoxxel plugin that implements the [SSIDC cluster indicator algorithm](https://imagej.net/plugins/biovoxxel-toolbox#:~:text=changed%20in%20future.-,SSIDC%20Cluster%20Indicator,invariant%20density%20based%20clustering%20DBSCAN).
 ![LD clustering](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/660f1375-b74d-4eea-ad77-3001f54c1b22), setting its Cluster distance to 20 and its density to 3.
 ## Identify mitochondria
-To segment mitochondria, we trained an Ilastik model using representative images of all different conditions from both WT and KO group (available in the [Ilastik folder](../../tree/main/Ilastik)).
+To segment mitochondria, we trained an Ilastik model using representative images of all different conditions from both WT and MKO group (available in the [Ilastik folder](../../tree/main/Ilastik)).
 ![Mito](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/f2441976-a410-4473-8be0-910907f3aaff)
+## Measuring mitocondrial Asspect Ratio (AR)
+
 ## Cell categorization
 For each cell in the image, we export to a CSV file the following information:
 1. Number of LDs

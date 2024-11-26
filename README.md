@@ -17,15 +17,19 @@ To identify The cells in the image:
 1. First, we trained a Cellpose model using both the Mitochondria and nucleus channels. The training features included cellular and nuclear areas, shape, intensity, and texture features of representative images of all different conditions, from both WT and KO group. We used Cellpose default parameters and set Cell diameter to 320. (available in the [Cellpose folder](../../tree/main/Cellpose)).
 2. We then filtered out small, identified cells (area smaller than 100 micron^2)
 3. Finally, we dilated the segmentation by 20 pixels (as the Cellpose model followed the outline of the mitochondria and not the actual cell membrane); We made sure that the cells dilation does not cause an overlap.
-![Cell segmentation](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/b14a8658-0810-4093-b68f-0dad955bd585)
+![Cell segmentation](https://github.com/user-attachments/assets/ee6f2097-ba0d-40e6-82a8-be940848dac0)
+
 ## Identify and cluster LDs
 To identify the lipid droplets (LDs), we used StarDist. We then filter LDs based on their mean intensity (> 700). Finally, we filtered out too big segmentations (> 2 micron<sup>2</sup>). For StarDist we used the default parameters as set by the Fiji's plugin. 
 
 For LD Clustering we used Fiji’s BioVoxxel plugin that implements the [SSIDC cluster indicator algorithm](https://imagej.net/plugins/biovoxxel-toolbox#:~:text=changed%20in%20future.-,SSIDC%20Cluster%20Indicator,invariant%20density%20based%20clustering%20DBSCAN).
-![LD clustering](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/660f1375-b74d-4eea-ad77-3001f54c1b22), setting its Cluster distance to 20 and its density to 3.
+![LD clustering](https://github.com/user-attachments/assets/16a0638c-93c0-4a49-86f4-4d7b5a01838c)
+
+setting its Cluster distance to 20 and its density to 3.
 ## Identify mitochondria
 To segment mitochondria, we trained an Ilastik model using representative images of all different conditions from both WT and MKO group (available in the [Ilastik folder](../../tree/main/Ilastik)).
-![Mito](https://github.com/WIS-MICC-CellObservatory/Mitochondria-structure-and-Lipid-droplets-clustering/assets/64706090/f2441976-a410-4473-8be0-910907f3aaff)
+
+![Mito](https://github.com/user-attachments/assets/e6d1c96f-82e1-4daf-8896-2af4dda551c2)
 ## Measuring mitochondrial Aspect Ratio (AR)<sup>1</sup>
 We define the Aspect ratio (AR) of the mitochondria of each cell to be the ratio between the mitochondria mean length and the mitochondria mean width. The mean width was taken to be the mean local-thickness of the mitochondria skeleton (using Fiji’s “Local Thickness” and “Skeletonize” plugins respectively), the mean length was taken to be the mitochondria mean area divided by the mean width (mean area was calculated to be the mitochondria total area divided by the number of mitochondria fragments – small fragments were ignored). Finaly, we multiplied the result by π/4 so that the AR of a circle to be 1.
 ## Cell categorization
